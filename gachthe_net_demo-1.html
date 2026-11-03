@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gachthe.net — Demo</title>
+<style>
+:root{--blue:#087cf0;--green:#25a34a;--mint:#eaf8ef;--ink:#20242a;--muted:#6b7280}
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:var(--ink);font:16px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:white;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px #0000000c;position:sticky;top:0}
+.logo{font-weight:900;font-size:23px;color:var(--blue);letter-spacing:-1px}.logo span{color:#22a45a}
+button,select,input{font:inherit}button{border:0;border-radius:9px;padding:12px 14px;cursor:pointer}
+.account{border:2px solid var(--blue);background:white;color:var(--blue);font-weight:600}
+main{max-width:720px;margin:18px auto;padding:0 14px}.intro{background:linear-gradient(120deg,#e7f3ff,#edfff3);border-radius:14px;padding:18px;margin-bottom:16px}
+h1{font-size:23px;margin:0 0 6px}p{margin:4px 0;color:#4b5563}
+.panel{background:white;border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 2px 10px #00000008}
+h2{font-size:19px;margin:0 0 14px}label{display:block;font-size:14px;color:#555;margin:12px 0 6px}
+input,select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:9px;background:white}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.primary{background:var(--blue);color:white;font-weight:700;width:100%;margin-top:14px}.green{background:var(--green);color:white;font-weight:700}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.tab{background:#e5e7eb}.tab.active{background:var(--blue);color:white}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid #e5e7eb;border-radius:10px;padding:12px;text-align:center;background:white}.emoji{font-size:29px}.card b{display:block;margin-top:5px;font-size:14px}
+.notice{background:#fff7e6;border:1px solid #ffe1a6;padding:12px;border-radius:10px;color:#795400;font-size:13px;margin-top:12px}
+footer{text-align:center;color:#777;padding:24px 12px;font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="logo">Gachthe<span>.net</span></div><button class="account" onclick="alert('Demo: trang tài khoản chưa kết nối.')">♙ Tài khoản</button></header>
+<main>
+<section class="intro"><h1>Đổi thẻ & mua card game</h1><p>Giao diện thử nghiệm Gachthe.net • Xanh pastel, dễ dùng trên điện thoại</p></section>
+<section class="panel">
+<h2>🎫 Đổi thẻ điện thoại / thẻ game (bản demo)</h2>
+<div class="tabs"><button class="tab active" onclick="setTab(this,'one')">Đổi thẻ</button><button class="tab" onclick="setTab(this,'many')">Đổi nhiều thẻ</button></div>
+<label>Nhà mạng</label><select id="network"><option>Viettel</option><option>VinaPhone</option><option>MobiFone</option><option>Vietnamobile</option><option>Garena</option><option>Zing</option><option>Vcoin</option><option>Scoin</option><option>Roblox</option></select>
+<div class="grid"><div><label>Mệnh giá</label><select id="value"><option>10.000đ</option><option>20.000đ</option><option>30.000đ</option><option>50.000đ</option><option>100.000đ</option></select></div><div><label>Số lượng</label><select id="qty"><option>1</option><option>2</option><option>3</option></select></div></div>
+<button class="primary" onclick="demo()">Gửi yêu cầu demo</button>
+<div class="notice">Có thể chọn cả thẻ điện thoại lẫn thẻ game (Garena, Zing, Vcoin, Scoin, Roblox). Đây chỉ là giao diện minh họa: không nhập mã thẻ/serial thật; nút gửi không truyền dữ liệu và không xử lý giao dịch.</div>
+</section>
+<section class="panel"><h2>🛒 Mua thẻ điện thoại</h2><div class="cards">
+<div class="card"><div class="emoji">📱</div><b>Viettel</b></div><div class="card"><div class="emoji">📱</div><b>VinaPhone</b></div><div class="card"><div class="emoji">📱</div><b>MobiFone</b></div><div class="card"><div class="emoji">📱</div><b>Vietnamobile</b></div><div class="card"><div class="emoji">📲</div><b>Thẻ data</b></div><div class="card"><div class="emoji">🎁</div><b>Khác</b></div>
+</div></section>
+<section class="panel"><h2>🎮 Mua thẻ game</h2><div class="cards">
+<div class="card"><div class="emoji">🟥</div><b>Garena</b></div><div class="card"><div class="emoji">🟦</div><b>Zing</b></div><div class="card"><div class="emoji">🪙</div><b>Vcoin</b></div><div class="card"><div class="emoji">🎮</div><b>Scoin</b></div><div class="card"><div class="emoji">🌟</div><b>Roblox</b></div><div class="card"><div class="emoji">🎲</div><b>Khác</b></div>
+</div><div class="notice">Mục mua thẻ đang là mẫu giao diện, chưa kết nối kho mã hoặc thanh toán.</div></section>
+<section class="panel"><h2>📋 Bảng phí (mẫu)</h2><p>Phí và tỷ lệ quy đổi hiện chưa được thiết lập. Cần xác minh nhà cung cấp và điều khoản trước khi hiển thị mức phí thật.</p></section>
+</main>
+<footer>Gachthe.net • Bản demo giao diện — chưa xử lý giao dịch</footer>
+<script>
+function setTab(el,mode){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('qty').value=mode==='many'?'2':'1'}
+function demo(){alert('Đã chạy thử giao diện. Không có thẻ nào được gửi hoặc xử lý.')}
+</script>
+</body></html>
